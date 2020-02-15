@@ -1,4 +1,6 @@
 import math
+import matplotlib.pyplot as plt
+import numpy as np
 
 class general:
     def find_x(a,b,c):
@@ -50,6 +52,14 @@ class general:
                     
             #end="{}(x + {})^2 + {}".format(a,b/a/2,z)
             return end
+    def plot_graph(a,b,c):
+        x = np.linspace(-10, 10, 1000) #create 1000 equally spaced points between -10 and 10
+        y= a*x**2 + b*x + c #ax^2 + bx + c
+
+        #I have no idea what these 2 do pls don't kill me
+        fig, ax = plt.subplots()
+        ax.plot(x,y)
+        plt.show()
 
 user_input=input("(1) Solve\n(2) Completing the square\n")
 while user_input!="q":
@@ -58,14 +68,18 @@ while user_input!="q":
         a=float(input("a: "))
         b=float(input("b: "))
         c=float(input("c: "))
-        print(general.find_x(a,b,c),"\n")
+        user_plot_graph=input("Do you want to see graph (glitch warning) (y/n): ")
+        if user_plot_graph=="y":
+            general.plot_graph(a,b,c)
     elif user_input=="2":
         print("ax^2 + bx + c")
         a=float(input("a: "))
         b=float(input("b: "))
         c=float(input("c: "))
         print(general.cts(a,b,c),"\n")
+        user_plot_graph=input("Do you want to see graph (glitch warning) (y/n): ")
+        if user_plot_graph=="y":
+            general.plot_graph(a,b,c)
     else:
         print("Error: Please enter 1, 2 or q\n")
     user_input=input("(1) Find x\n(2) Completing the square\n")
-        
