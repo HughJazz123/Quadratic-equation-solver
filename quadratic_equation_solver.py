@@ -5,8 +5,8 @@ import numpy as np
 class general:
     def find_x(a,b,c):
         if (b**2-4*c>=0) and a==1:
-            x1=-((-b)+(math.sqrt((b**2)-4*c)))/(2)
-            x2=-((-b)-(math.sqrt((b**2)-4*c)))/(2)
+            x1=(-b)+(math.sqrt((b**2)-4*c))/(2)
+            x2=(-b)-(math.sqrt((b**2)-4*c))/(2)
             if x1==x2:
                 return "x={}".format(x1)
             else:
